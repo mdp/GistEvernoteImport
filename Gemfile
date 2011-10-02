@@ -1,0 +1,6 @@
+gem 'evernote'
+gem 'typhoeus'
+gem 'data_mapper'
+gem 'dm-sqlite-adapter'
+gem 'json'
+gem 'htmlentities'
