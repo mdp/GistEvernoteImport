@@ -1,0 +1,11 @@
+Evernote:
+  :username: 'username'
+  :password: 'password'
+  :consumer_key: 'key'
+  :consumer_secret: 'secret'
+  :user_store_url: 'https://www.evernote.com/edam/user'
+  :folder: 'Gists'
+
+Github:
+  :username: 'username'
+  :password: 'password'
