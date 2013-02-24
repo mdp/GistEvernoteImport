@@ -1,4 +1,5 @@
 GEM
+  remote: http://rubygems.org/
   specs:
     addressable (2.2.6)
     bcrypt-ruby (2.1.4)
@@ -47,16 +48,16 @@ GEM
       dm-core (~> 1.1.0)
     do_sqlite3 (0.10.6)
       data_objects (= 0.10.6)
-    evernote (1.1.0)
-      thrift_client
+    evernote-thrift (1.23.1)
+    evernote_oauth (0.1.7)
+      evernote-thrift
+      oauth (>= 0.4.1)
     fastercsv (1.5.4)
     htmlentities (4.3.0)
     json (1.4.6)
     mime-types (1.16)
+    oauth (0.4.7)
     stringex (1.2.2)
-    thrift (0.7.0)
-    thrift_client (0.7.1)
-      thrift (~> 0.7.0)
     typhoeus (0.2.4)
       mime-types
       mime-types
@@ -68,7 +69,7 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   dm-sqlite-adapter
-  evernote
+  evernote_oauth
   htmlentities
   json
   typhoeus

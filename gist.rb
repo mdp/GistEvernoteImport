@@ -38,7 +38,7 @@ class Gist
   def title
     desc = @gist["description"]
     if desc && desc.length > 0
-      desc
+      desc[0,255]
     else
       self.files.keys.first
     end
@@ -62,7 +62,8 @@ class Gist
     hydra.run
     concat = ''
     requests.each do |req|
-      body = HTMLEntities.new.encode(req.response.body)
+      body = req.response.body.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace})
+      body = HTMLEntities.new.encode(body)
       file_name = URI.decode(req.url[/([^\/]+)$/,1])
       concat << "<h4>#{file_name}</h4><pre>#{body}</pre>"
     end

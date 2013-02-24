@@ -1,17 +1,27 @@
 require 'rubygems'
-require 'everton'
-require 'gist'
-require 'gists'
+require 'evernote_oauth'
+require './gist'
+require './gists'
 require 'yaml'
 
 config = YAML.load_file(File.expand_path('../config.yml', __FILE__))
 
+
 # Authenticate
-Everton::Remote.authenticate config["Evernote"]
+authToken = config['Evernote'][:token]
+client = EvernoteOAuth::Client.new(token: authToken, sandbox: false)
 gists = Gists.new(config["Github"][:username], config["Github"][:password]).get.reverse
 folder = config["Evernote"][:folder]
 
-raise "#{folder} folder not found" unless @notebook = Everton::Notebook.find(folder)
+@note_store =  client.note_store
+notebooks = @note_store.listNotebooks()
+
+notebooks.each do |notebook|
+  if notebook.name == folder
+    puts "Found #{notebook.name}"
+    @notebook = notebook
+  end
+end
 
 def import(gist, guid = nil)
   note = Evernote::EDAM::Type::Note.new()
@@ -20,12 +30,13 @@ def import(gist, guid = nil)
   note.content = '<?xml version="1.0" encoding="UTF-8"?>' +
     '<!DOCTYPE en-note SYSTEM "http://xml.evernote.com/pub/enml2.dtd"><en-note>'+
     "<a href='#{gist.url}'>#{gist.url}</a><p>#{gist.content}</p></en-note>"
-  p "Creating #{note.title}"
   if guid
+    p "Updating #{note.title}"
     note.guid = guid
-    Everton::Remote.note_store.updateNote(Everton::Remote.access_token, note)
+    @note_store.updateNote(note)
   else
-    Everton::Remote.note_store.createNote(Everton::Remote.access_token, note)
+    p "Creating #{note.title}"
+    @note_store.createNote(note)
   end
 end
 
