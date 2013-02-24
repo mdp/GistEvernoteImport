@@ -1,9 +1,5 @@
 Evernote:
-  :username: 'username'
-  :password: 'password'
-  :consumer_key: 'key'
-  :consumer_secret: 'secret'
-  :user_store_url: 'https://www.evernote.com/edam/user'
+  :token: "S=s2:U=9999:E=155331215e6c:C=13cbdbbd92d:P=9de:A=en-devtoken:H=aldskfjasdlfkjasdlfkj"
   :folder: 'Gists'
 
 Github:
