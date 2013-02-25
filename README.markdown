@@ -1,8 +1,7 @@
 ## Gist Evernote Importer
 
 Relies of the Evernote gem, Typhoeus, and Datamapper to quickly import and
-keep your gists up to date inside of Evernote. Also makes use of the excellent
-[Everton](http://githup.com/rubiojr/everton) code I stole.
+keep your gists up to date inside of Evernote.
 
 ### The reason
 
@@ -10,27 +9,32 @@ I use evernote for saving things like receipts and business cards, and random
 digital cruft I accumulate over the course of my day.
 
 The only thing missing with having my Github Gists imported and be searchable.
-For that matter, Gists in general are a great way to stash code snippets, but 
+For that matter, Gists in general are a great way to stash code snippets, but
 have no means of searching.
 
 Evernote on the other hand has great search capabilities, but TERRIBLE support
-for code snippets. In fact their editor is probably among the worst I've used.
+for code snippets.
 
 This lets me sync my Gists with Evernote, thereby solving the searching problem,
 but lets me keep using and editing them on Github.
 
-### Usage
+### Installation
 
-This isn't gem, just a simple ruby project.
+First, get an API token from Evernote. This will let you access just your account.
+
+https://www.evernote.com/api/DeveloperToken.action
 
 Clone the repo, move config.yml.sample to config.yml and update with your
-own info(including an API key from Evernote)
+own info(including an API key from Evernote). Then run the bundler installer
 
-Then run ruby import.rb and watch the import process scroll by.
+    bundle install
+
+Now you can simply run one command to import all your Gists
+
+    ruby import.rb
 
 If anything in your gists change, this will automatically update to appropriate
 note in Evernote with the information
-
 
 ### How
 
