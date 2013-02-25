@@ -3,20 +3,26 @@
 Relies of the Evernote gem, Typhoeus, and Datamapper to quickly import and
 keep your gists up to date inside of Evernote.
 
+#### Warning
+
+This is very much me just scratching my own itch. The code could be much better
+abstracted, and made into a gem. Oh and tests would be nice ;)
+
+That being said, I'm probably one of 3 people that have a use for this. But if
+for some reason your interested, feel free to fork it and make it your own.
+
 ### The reason
 
 I use evernote for saving things like receipts and business cards, and random
 digital cruft I accumulate over the course of my day.
 
-The only thing missing with having my Github Gists imported and be searchable.
-For that matter, Gists in general are a great way to stash code snippets, but
-have no means of searching.
+The only thing missing was my Github Gists. For that matter, Gists in general
+are a great way to stash code snippets, but have no means of searching.
 
 Evernote on the other hand has great search capabilities, but TERRIBLE support
 for code snippets.
 
-This lets me sync my Gists with Evernote, thereby solving the searching problem,
-but lets me keep using and editing them on Github.
+This project tries to rectify the situation.
 
 ### Installation
 
