@@ -25,7 +25,7 @@ class EvernoteGistStore
       note.guid = guid
       @note_store.updateNote(note)
     else
-      p "Creating #{note.title}"
+      p "Creating #{note.title} for #{gist.url}"
       @note_store.createNote(note)
     end
   end

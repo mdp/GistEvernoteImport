@@ -55,13 +55,16 @@ class Gist
     requests = []
     hydra = Typhoeus::Hydra.new
     self.files.each do |k,v|
-      r = Typhoeus::Request.new(URI.encode(v["raw_url"]), :follow_location => true)
+      r = Typhoeus::Request.new(URI.encode(v["raw_url"]), :followlocation => true)
       hydra.queue(r)
       requests << r
     end
     hydra.run
     concat = ''
     requests.each do |req|
+      if req.response.headers['Content-Type'].match(/^image/)
+        next #Skip images for simplicity
+      end
       body = req.response.body.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace})
       body = HTMLEntities.new.encode(body)
       file_name = URI.decode(req.url[/([^\/]+)$/,1])
