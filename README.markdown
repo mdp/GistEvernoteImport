@@ -1,3 +1,4 @@
+![Evernote and Gist](http://i.imgur.com/AF5OsTQ.png)
 ## Gist Evernote Importer
 
 Relies of the Evernote gem, Typhoeus, and Datamapper to quickly import and
