@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 gem 'evernote_oauth'
 gem 'typhoeus'
 gem 'data_mapper'

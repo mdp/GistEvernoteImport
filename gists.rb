@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'typhoeus'
 require 'json'
-require './gist'
+require "#{File.dirname(__FILE__)}/gist"
 
 
 class Gists

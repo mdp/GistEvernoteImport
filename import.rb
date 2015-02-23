@@ -1,8 +1,8 @@
-require 'rubygems'
-require './evernote_gist_store'
-require './gist'
-require './gists'
-require 'yaml'
+require "rubygems"
+require "#{File.dirname(__FILE__)}/evernote_gist_store"
+require "#{File.dirname(__FILE__)}/gist"
+require "#{File.dirname(__FILE__)}/gists"
+require "yaml"
 
 config = YAML.load_file(File.expand_path('../config.yml', __FILE__))
 

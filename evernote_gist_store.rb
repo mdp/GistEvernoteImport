@@ -11,6 +11,9 @@ class EvernoteGistStore
       @notebook = notebook if notebook.name  == folder
       @notebooks[notebook.name] = notebook
     end
+    unless @notebook
+      raise "Can't find #{folder}"
+    end
   end
 
   def import(gist, guid = nil)
