@@ -3,15 +3,7 @@
 Relies of the Evernote gem, Typhoeus, and Datamapper to quickly import and
 keep your gists up to date inside of Evernote.
 
-#### Warning
-
-This is very much me just scratching my own itch. The code could be much better
-abstracted, and made into a gem. Oh and tests would be nice ;)
-
-That being said, I'm probably one of 3 people that have a use for this. But if
-for some reason your interested, feel free to fork it and make it your own.
-
-### The reason
+### Why
 
 I use evernote for saving things like receipts and business cards, and random
 digital cruft I accumulate over the course of my day.
@@ -28,19 +20,17 @@ This project tries to rectify the situation.
 
 First, get an API token from Evernote. This will let you access just your account.
 
-https://www.evernote.com/api/DeveloperToken.action
+[https://www.evernote.com/api/DeveloperToken.action](https://www.evernote.com/api/DeveloperToken.action)
 
-Clone the repo, move config.yml.sample to config.yml and update with your
-own info(including an API key from Evernote). Then run the bundler installer
-
+    git clone git@github.com:mdp/GistEvernoteImport.git
+    cd GistEvernoteImport
+    mv config.yml.sample config.yml
+    vim config.yml # Add your Evernote token and Github information here
     bundle install
-
-Now you can simply run one command to import all your Gists
-
-    ruby import.rb
+    bundle exec ruby import.rb
 
 If anything in your gists change, this will automatically update to appropriate
-note in Evernote with the information
+note in Evernote with the information on the next run.
 
 ### How
 

@@ -1,7 +1,8 @@
 Evernote:
+  # Get your token at https://www.evernote.com/api/DeveloperToken.action
   :token: "S=s2:U=9999:E=155331215e6c:C=13cbdbbd92d:P=9de:A=en-devtoken:H=aldskfjasdlfkjasdlfkj"
   :folder: 'Gists'
 
 Github:
   :username: 'username'
-  :password: 'password'
+  :password: 'password or personal token' #See: https://github.com/settings/applications
