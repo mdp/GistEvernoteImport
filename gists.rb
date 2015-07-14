@@ -16,7 +16,7 @@ class Gists
     while next_page do
       response = Typhoeus.get("https://api.github.com/gists?page=#{next_page}&per_page=100", :userpwd => "#{@username}:#{@password}")
       p "Querying Gist API for page ##{next_page}"
-      next_page = response.headers_hash["Link"][/page=([0-9]+).+next/,1]
+      next_page = response.headers_hash["Link"].nil? ? false : response.headers_hash["Link"][/page=([0-9]+).+next/,1]
       JSON.parse(response.body).each do |gist|
         gists << Gist.new(gist)
       end
