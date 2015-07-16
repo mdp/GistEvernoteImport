@@ -78,7 +78,7 @@ class Gist
 
       end
       file_name = URI.decode(req.url[/([^\/]+)$/,1])
-      concat << "<h4>#{file_name}</h4><pre>#{body}</pre>"
+      concat << "<h2>#{file_name}</h2><pre>#{body}</pre>"
     end
     concat
   end
