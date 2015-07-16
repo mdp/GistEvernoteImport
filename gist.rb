@@ -3,6 +3,8 @@ require  'dm-migrations'
 require 'digest/sha1'
 require 'htmlentities'
 require 'uri'
+require 'pygments'
+
 
 cwd = File.expand_path('..', __FILE__)
 DataMapper.setup(:default, "sqlite://#{cwd}/db.sql")
@@ -21,7 +23,10 @@ DataMapper.auto_upgrade!
 class Gist
   def initialize(gist)
     @gist = gist
+    @style = nil
   end
+
+  attr_writer :style
 
   def id
     @gist["id"]
@@ -54,10 +59,12 @@ class Gist
   def content
     requests = []
     hydra = Typhoeus::Hydra.new
+    req2lang = {};
     self.files.each do |k,v|
       r = Typhoeus::Request.new(URI.encode(v["raw_url"]), :followlocation => true)
       hydra.queue(r)
       requests << r
+      req2lang[r] = v["language"].downcase if @style
     end
     hydra.run
     concat = ''
@@ -65,8 +72,11 @@ class Gist
       if req.response.headers['Content-Type'].match(/^image/)
         next #Skip images for simplicity
       end
-      body = req.response.body.to_s.encode('UTF-8', {:invalid => :replace, :undef => :replace})
-      body = HTMLEntities.new.encode(body)
+      body = req.response.body
+      if @style
+        body = Pygments.highlight(body, :lexer => req2lang[req], :options => {:noclasses => true, :cssclass=> "", :style=> @style})
+
+      end
       file_name = URI.decode(req.url[/([^\/]+)$/,1])
       concat << "<h4>#{file_name}</h4><pre>#{body}</pre>"
     end

@@ -18,6 +18,7 @@ gists.each do |gist|
     p "Already saved #{gist.url}"
     # Do nothing
   else
+    gist.style = config['code_highlighting_style']
     if record = GistSync.first(:gist_id => gist.id)
       evernote_gist_store.import(gist, record.guid)
       record.file_hash = gist.file_hash
