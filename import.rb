@@ -19,6 +19,7 @@ gists.each do |gist|
     # Do nothing
   else
     if record = GistSync.first(:gist_id => gist.id)
+      evernote_gist_store.import(gist, record.guid)
       record.file_hash = gist.file_hash
       record.save
     else
