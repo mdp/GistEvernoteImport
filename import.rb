@@ -12,9 +12,9 @@ gists = Gists.new(config["Github"][:username], config["Github"][:password]).get.
 folder = config["Evernote"][:folder]
 
 evernote_gist_store = EvernoteGistStore.new(folder, authToken)
-
+evernote_gist_store.tags(config["Evernote"][:tagnames])
 gists.each do |gist|
-  if record = GistSync.first(:gist_id => gist.id, :file_hash => gist.file_hash)
+  if !config['force_update'] and record = GistSync.first(:gist_id => gist.id, :file_hash => gist.file_hash)
     p "Already saved #{gist.url}"
     # Do nothing
   else
