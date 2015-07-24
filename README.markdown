@@ -31,7 +31,7 @@ First, get an API token from Evernote. This will let you access just your accoun
 
 [https://www.evernote.com/api/DeveloperToken.action](https://www.evernote.com/api/DeveloperToken.action)
 
-    git clone git@github.com:mdp/GistEvernoteImport.git
+    git clone https://github.com/mdp/GistEvernoteImport.git
     cd GistEvernoteImport
     mv config.yml.sample config.yml
     vim config.yml # Add your Evernote token and Github information here
