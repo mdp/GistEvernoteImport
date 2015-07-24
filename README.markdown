@@ -17,6 +17,14 @@ for code snippets.
 
 This project tries to rectify the situation.
 
+### Dependencies
+
+Installation requires the bundle gem, curl, git, ruby-dev, make, libsqlite3-dev and an editor such as vim e.g. (on Ubuntu 14.04):
+
+    apt-get update
+    apt-get install -y curl git ruby-dev make libsqlite3-dev vim
+    gem install bundle --no-rdoc --no-ri
+
 ### Installation
 
 First, get an API token from Evernote. This will let you access just your account.
