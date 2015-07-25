@@ -33,8 +33,8 @@ First, get an API token from Evernote. This will let you access just your accoun
 
     git clone https://github.com/mdp/GistEvernoteImport.git
     cd GistEvernoteImport
-    mv config.yml.sample config.yml
-    vim config.yml # Add your Evernote token and Github information here
+    mv data/config.yml.sample data/config.yml
+    vim data/config.yml # Add your Evernote token and Github information here
     bundle install
     bundle exec ruby import.rb
 
