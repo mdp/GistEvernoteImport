@@ -1,8 +1,6 @@
 #!/bin/bash
 
 if [ ! -f ./data/config.yml ]; then
-      echo "Config file not found"
-      echo "Remember to create your config.yml file and place it in ./data"
-      exit 1
+      echo "Config file not found, please run setup.rb"
 fi
 bundle exec ruby import.rb

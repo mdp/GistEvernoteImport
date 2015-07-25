@@ -33,9 +33,8 @@ First, get an API token from Evernote. This will let you access just your accoun
 
     git clone https://github.com/mdp/GistEvernoteImport.git
     cd GistEvernoteImport
-    mv data/config.yml.sample data/config.yml
-    vim data/config.yml # Add your Evernote token and Github information here
     bundle install
+    bundle exec ruby setup.rb #Follow the instructions
     bundle exec ruby import.rb
 
 If anything in your gists change, this will automatically update to appropriate
@@ -46,10 +45,8 @@ note in Evernote with the information on the next run.
 Create a directory to store the config and database
 ```
 mkdir $HOME/.gistevernote
-cd $HOME/.gistevernote && |
-  wget https://raw.githubusercontent.com/mdp/GistEvernoteImport/master/data/config.yml.sample -o config.yml
-vim config.yml #Update with your credentials and settings
 docker pull mpercival/evernotegist
+docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote bundle exec setup.rb
 docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote
 ```
 
