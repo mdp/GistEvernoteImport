@@ -5,7 +5,7 @@ require 'htmlentities'
 require 'uri'
 
 cwd = File.expand_path('..', __FILE__)
-DataMapper.setup(:default, "sqlite://#{cwd}/db.sql")
+DataMapper.setup(:default, "sqlite://#{cwd}/data/db.sql")
 
 class GistSync
   include DataMapper::Resource

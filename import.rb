@@ -4,7 +4,7 @@ require "#{File.dirname(__FILE__)}/gist"
 require "#{File.dirname(__FILE__)}/gists"
 require "yaml"
 
-config = YAML.load_file(File.expand_path('../config.yml', __FILE__))
+config = YAML.load_file(File.expand_path('../data/config.yml', __FILE__))
 
 # Authenticate
 authToken = config['Evernote'][:token]
