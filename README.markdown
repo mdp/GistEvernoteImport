@@ -41,6 +41,18 @@ First, get an API token from Evernote. This will let you access just your accoun
 If anything in your gists change, this will automatically update to appropriate
 note in Evernote with the information on the next run.
 
+### Using it with Docker
+
+Create a directory to store the config and database
+```
+mkdir $HOME/.gistevernote
+cd $HOME/.gistevernote && |
+  wget https://raw.githubusercontent.com/mdp/GistEvernoteImport/master/data/config.yml.sample -o config.yml
+vim config.yml #Update with your credentials and settings
+docker pull mpercival/evernotegist
+docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote
+```
+
 ### How
 
 There's a sqlite database storing the Gist, the Evernote Guid, and the current
