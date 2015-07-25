@@ -9,7 +9,7 @@ RUN mkdir /app && chown evergist /app
 USER evergist
 
 WORKDIR "/app"
-RUN curl -L -O https://github.com/mdp/GistEvernoteImport/archive/dockerize.zip && unzip -j dockerize.zip
+RUN curl -L -O https://github.com/mdp/GistEvernoteImport/archive/master.zip && unzip -j master.zip
 RUN bundle install --path /app/.gem
 
 VOLUME ["/app/data"]
