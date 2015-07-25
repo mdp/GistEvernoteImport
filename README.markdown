@@ -33,13 +33,22 @@ First, get an API token from Evernote. This will let you access just your accoun
 
     git clone https://github.com/mdp/GistEvernoteImport.git
     cd GistEvernoteImport
-    mv config.yml.sample config.yml
-    vim config.yml # Add your Evernote token and Github information here
     bundle install
+    bundle exec ruby setup.rb #Follow the instructions
     bundle exec ruby import.rb
 
 If anything in your gists change, this will automatically update to appropriate
 note in Evernote with the information on the next run.
+
+### Using it with Docker
+
+Create a directory to store the config and database
+```
+mkdir $HOME/.gistevernote
+docker pull mpercival/gistevernote
+docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote bundle exec setup.rb
+docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote
+```
 
 ### How
 
