@@ -25,7 +25,7 @@ config = {
   }
 }
 
-var filepath = ARGV[0] || "./data/config.yml"
+filepath = ARGV[0] || "./data/config.yml"
 puts "Saving credentials to #{filepath}"
 File.open(filepath, 'w') { |file| file.write(config.to_yaml) }
 puts "Done!"
