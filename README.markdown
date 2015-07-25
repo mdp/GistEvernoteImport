@@ -45,7 +45,7 @@ note in Evernote with the information on the next run.
 Create a directory to store the config and database
 ```
 mkdir $HOME/.gistevernote
-docker pull mpercival/evernotegist
+docker pull mpercival/gistevernote
 docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote bundle exec setup.rb
 docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote
 ```
