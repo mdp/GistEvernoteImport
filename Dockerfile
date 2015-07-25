@@ -6,7 +6,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN cd / && git clone https://github.com/mdp/GistEvernoteImport.git app && \
     cd app && \
-    git checkout dockerize
+    git checkout dockerize && \
+    git pull && \
     bundle install
 
 VOLUME ["/app/data"]
