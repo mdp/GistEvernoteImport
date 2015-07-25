@@ -1,2 +1,3 @@
-config.yml
-db.sql
+/data/config.yml
+/data/db.sql
+*.log
