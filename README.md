@@ -15,7 +15,8 @@ are a great way to stash code snippets, but have no means of searching.
 Evernote on the other hand has great search capabilities, but TERRIBLE support
 for code snippets.
 
-This project tries to rectify the situation.
+This project tries to rectify the situation by creating a one direction sync of
+your Github gists to an evernote Notebook of your choosing.
 
 ### Dependencies
 
@@ -52,6 +53,15 @@ docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote bund
 # Run it
 docker run --rm -v $HOME/.gistevernote:/app/data mpercival/gistevernote
 ```
+
+#### Docker warning
+
+The sqlfile located at /app/data/db.sql is necessary to keep the state of your sync'd gists.
+Therefore this image should only be run in from one container, otherwise you'll
+end up with duplicate Evernote notes.
+
+If this happens, you can simple delete /app/data/db.sql along with your Evernote
+gist notebook and rerun the process to start over.
 
 ### How
 
