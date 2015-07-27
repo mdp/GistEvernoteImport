@@ -25,4 +25,4 @@ CMD ["./run.sh"]
 # Setup your credentials - will be written to /app/data/config.yml
 #   docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote bundle exec setup.rb
 # Run it
-#   docker run --rm -it -v $HOME/.gistevernote:/app/data mpercival/gistevernote
+#   docker run --rm -v $HOME/.gistevernote:/app/data mpercival/gistevernote
